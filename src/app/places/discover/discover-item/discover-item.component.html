@@ -1,0 +1,12 @@
+<!-- <ion-virtual-scroll [items]="loadedPlaces" approxItemHeight="70px"> -->
+  <ion-item *ngFor="let place of loadedPlaces" [routerLink]="['/', 'places', 'tabs', 'discover', place.id]"
+    detail>
+    <ion-thumbnail slot="start">
+      <ion-img [src]="place.imageUrl"></ion-img>
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{ place.title }}</h2>
+      <p>{{ place.description }}</p>
+    </ion-label>
+  </ion-item>
+<!-- </ion-virtual-scroll> -->

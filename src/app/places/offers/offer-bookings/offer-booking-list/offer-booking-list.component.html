@@ -1,0 +1,42 @@
+<div>
+  <mat-table class="lessons-table mat-elevation-z8" [dataSource]="bookings">
+
+    <ng-container matColumnDef="name">
+
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+
+      <mat-cell *matCellDef="let booking">{{booking.firstName}} {{booking.lastName}}</mat-cell>
+
+    </ng-container>
+
+    <ng-container matColumnDef="guestnumber">
+
+      <mat-header-cell *matHeaderCellDef>Guest Number</mat-header-cell>
+
+      <mat-cell *matCellDef="let booking">{{booking.guestNumber}}</mat-cell>
+
+    </ng-container>
+
+    <ng-container matColumnDef="bookFrom">
+
+      <mat-header-cell *matHeaderCellDef>Book From</mat-header-cell>
+
+      <mat-cell *matCellDef="let booking">{{booking.bookedFrom.seconds | date}}</mat-cell>
+
+    </ng-container>
+    <ng-container matColumnDef="bookTo">
+
+      <mat-header-cell *matHeaderCellDef>Book To</mat-header-cell>
+
+      <mat-cell *matCellDef="let booking">{{booking.bookedTo.seconds | date}}</mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+  <ion-button class="bottom-toolbar" fill="clear" [class.spinner]="loading" expand="block" color="primary" (click)="loadMore()">Load More
+  </ion-button>
+</div>
